@@ -12,8 +12,9 @@ public class William_A8Q2 {
 		// Declare arrays for days of week and 2D array for calender days
 		String[] daysOfWk = { "S", "M", "T", "W", "T", "F", "S" };
 		String[] daysOfWeek = { "sun", "mon", "tue", "wed", "thur", "fri","sat" };
-		String[][] cal = new String[5][7];
-		int firstDay = 0;
+		String[][] cal = new String[6][7];
+		
+		int firstDay;
 		
 		// Get day of week for first day and number of days in the month
 		System.out.print("Day of the week of the first day:");
@@ -25,14 +26,13 @@ public class William_A8Q2 {
 		// Convert name of first day into number
 		for (int i = 0; i < daysOfWk.length; i++) {
 			if (daysOfWk[i].equalsIgnoreCase(firstDayStr)|| daysOfWeek[i].equalsIgnoreCase(firstDayStr)) {
-				firstDay = i;
 			}
 		}
 
 		//Set all positions in 2D array to a dash as a default
 		for (int i = 0; i < cal.length; i++) {
 			for (int n = 0; n < cal[0].length; n++) {
-				cal[i][n] = "-";
+				cal[i][n] = "--";
 			}
 		}
 		// For loop to put letters for days in first row
@@ -45,7 +45,7 @@ public class William_A8Q2 {
 		int days = 1;
 		
 		for(int i = 1;i < cal.length;i++){
-			for(int n = 0;n < cal[0].length;i++){
+			for(int n = 0;n < cal[0].length && days <= numOfDays;n++){
 				cal[i][n] = Integer.toString(days);
 				days++;
 			}
