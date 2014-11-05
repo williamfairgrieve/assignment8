@@ -7,8 +7,8 @@ import java.io.*;
 
 public class William_A8Q2 {
 	public static void main(String[] args) throws IOException {
-		BufferedReader stdin = new BufferedReader(new InputStreamReader(
-				System.in));
+		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+		
 		// Declare arrays for days of week and 2D array for calender days
 		String[] daysOfWk = { "S", "M", "T", "W", "T", "F", "S" };
 		String[] daysOfWeek = { "sun", "mon", "tue", "wed", "thur", "fri","sat" };
