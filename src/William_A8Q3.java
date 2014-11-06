@@ -2,12 +2,15 @@
 //Class: ICS3U Computer Science
 //Assigment 8 - Question 3
 //Date: October 31 2014
-//Import everything in java.io
 import java.io.*;
+
 public class William_A8Q3 {
+	
 	//Put BufferedReader here so all of the methods can access it without having to create their own.
 	static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+	
 	public static void main(String[] args) throws IOException {
+		
 		//Create 2D array to hold the game board, filled with dashes for blanks
 		char[][] board = fillBoard(new char[3][3]);
 		
@@ -31,7 +34,7 @@ public class William_A8Q3 {
 			printBoard(board);
 			checkDone(board,"2");
 		}
-	}//End of main method
+	}
 	
 	//Method to get coordinates
 	public static int[] getCoords(String player) throws IOException{
@@ -43,35 +46,42 @@ public class William_A8Q3 {
 		coords[0] = Integer.parseInt(Character.toString(strInput.charAt(0)));
 		coords[1] = Integer.parseInt(Character.toString(strInput.charAt(2)));
 		return coords;
-	}//End of method
+	}
 	
 	//Method to print contents of board
 	public static void printBoard(char[][] board){
 		//Loop through 2D array to print it
 		for (int i = 0; i < board.length; i++) {
 			for (int n = 0; n < board[0].length; n++) {
-				System.out.print(board[i][n]);
+				System.out.printf("|%s|",board[i][n]);
 			}
 			System.out.println();
 		}
-	}//End of method
+	}
 	
 	//Method to check for 3 characters in a row
 	public static void checkDone(char[][] board, String p){
+		
 		Boolean end = false;
+		
 		for(int i = 0; i < board.length; i++){
-			end = (board[i][0] == board[i][1] && board[i][1] == board[i][2]);
-			
-		}
-		for(int i = 0; i < board[0].length; i++){
-			end = (board[0][i] == board[1][i] && board[1][i] == board[2][i]);
+			end = (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][1] != '-');
 		}
 		
 		if(end){
 			System.out.printf("Player %s wins! \n", p);
 			System.exit(0);
 		}
-	}//End of method
+		
+		for(int i = 0; i < board[0].length; i++){
+			end = (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[1][i] != '-');
+		}
+		
+		if(end){
+			System.out.printf("Player %s wins! \n", p);
+			System.exit(0);
+		}
+	}
 	
 	//Method to fill board with dashes
 	public static char[][] fillBoard(char[][] board){
@@ -82,6 +92,5 @@ public class William_A8Q3 {
 			}
 		}
 		return board;
-	}//End of method
-	
-}//End of class
+	}	
+}
